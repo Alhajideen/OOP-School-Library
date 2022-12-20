@@ -7,8 +7,10 @@ class Person
     @name=name
     @parent_permission=parent_permission
   end
+
   def can_use_services?
-    of_age? || parent_permission=true
+    puts of_age?
+    of_age? || parent_permission
   end
 
   private
@@ -16,3 +18,6 @@ class Person
     @age>=18
   end
 end
+
+person1= Person.new(16,"Deen")
+puts person1.can_use_services?;
