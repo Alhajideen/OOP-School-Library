@@ -1,8 +1,8 @@
 require_relative './base_decorator'
 
-class TrimmerDecorator < Nameable
+class TrimmerDecorator < Decorator
   def correct_name
-    value = @nameable.correct_name
-    value.length > 10 ? (value[0...10]).to_s : value
+    @nameable.correct_name[0..9]
+    "#{@nameable.correct_name[0..9]}..." if @nameable.correct_name.length > 10
   end
 end
