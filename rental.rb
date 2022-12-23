@@ -8,8 +8,6 @@ class Rental
     @book = book
     @person = person
     @date = date
-    Person.rentals << self
-    Book.rentals << self
   end
 
   def books=(book)
