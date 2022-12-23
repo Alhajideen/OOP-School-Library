@@ -24,7 +24,13 @@ class App
     end
   end
 
-
+  def all_books
+    if @books.empty?
+      puts "There are no books created yet, You can be the first to add one ): \n\n"
+    else
+      @books.each { |bk| puts "\n Title: #{bk.title} by #{bk.author} \n \n" }
+    end
+  end
 
   def create_person()
     p 'Please enter an option, 1 for Teacher, 2 for Student'
