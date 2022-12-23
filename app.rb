@@ -12,8 +12,8 @@ class App
 
   def create_person()
     p 'Please enter an option, 1 for Teacher, 2 for Student'
-    res = gets.chomp
-    case res
+    response = gets.chomp
+    case response
     when '1'
       puts 'Enter Name of Teacher'
       name = gets.chomp
@@ -36,5 +36,11 @@ class App
       @people << new_student unless @people.include?(new_student)
       puts "\n Student #{name} aged #{age} added successfully \n\n"
     end
+  end
+
+  def create_book(title, author)
+    new_book = Book.new(title, author)
+    @books << new_book unless @books.include?(new_book)
+    puts "\n Book #{title} by #{author} created successfully \n\n"
   end
 end
