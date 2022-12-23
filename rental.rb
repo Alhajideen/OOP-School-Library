@@ -5,6 +5,8 @@ class Rental
     @book = book
     @person = person
     @date = date
+    person.rentals << self
+    book.rentals << self
   end
 
   def books=(book)
