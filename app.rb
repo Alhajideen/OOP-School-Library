@@ -43,4 +43,18 @@ class App
     @books << new_book unless @books.include?(new_book)
     puts "\n Book #{title} by #{author} created successfully \n\n"
   end
+
+  def create_rental
+    puts "Here are the available books, Select by Index number \n"
+    @books.each_with_index { |bk, i| puts "\n #{i + 1}. #{bk.title} by #{bk.author}  \n\n" }
+    index = gets.chomp.to_i
+    puts 'Who is renting this book?'
+    @people.each_with_index { |bk, i| puts "#{i + 1} #{bk.name} aged #{bk.age}" }
+    person = gets.chomp.to_i
+    puts 'Enter a date'
+    date = gets.chomp
+    new_rental = Rental.new(date, @books[index - 1], @people[person - 1])
+    @rentals << new_rental unless @rentals.include?(new_rental)
+    puts "\n Rental Created successfully \n\n"
+  end
 end
