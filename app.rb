@@ -25,7 +25,7 @@ class App
   end
 
   def all_books
-    if @books.empty?
+    if @books.length ==0
       puts "There are no books created yet, You can be the first to add one ): \n\n"
     else
       @books.each { |bk| puts "\n Title: #{bk.title} by #{bk.author} \n \n" }
