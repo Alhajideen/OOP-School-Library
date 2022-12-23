@@ -10,6 +10,22 @@ class App
     @people = []
   end
 
+  def permission?
+    puts 'Do you have Parent\'s Permission (Y,y/N,n)?'
+    permit = gets.chomp
+    case permit
+    when permit == 'y', 'Y'
+      true
+    when permit == 'n', 'N'
+      false
+    else
+      puts 'Invalide entry, Please try again'
+      permission?
+    end
+  end
+
+
+
   def create_person()
     p 'Please enter an option, 1 for Teacher, 2 for Student'
     response = gets.chomp
