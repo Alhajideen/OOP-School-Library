@@ -32,6 +32,14 @@ class App
     end
   end
 
+  def all_people
+    if @people.empty?
+      puts "There are no persons created yet, Add users to see them here :( \n\n"
+    else
+      @people.each { |peeps| puts "\n Name: #{peeps.name}, Age: #{peeps.age} years old \n\n" }
+    end
+  end
+
   def create_person()
     p 'Please enter an option, 1 for Teacher, 2 for Student'
     response = gets.chomp
