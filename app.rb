@@ -57,4 +57,17 @@ class App
     @rentals << new_rental unless @rentals.include?(new_rental)
     puts "\n Rental Created successfully \n\n"
   end
+
+  def all_rentals
+    puts "Below are the rentals Records, Insert an ID to filter \n"
+    @rentals.each_with_index { |rent, i| puts "\n #{i}. #{rent.book.title} written by #{rent.book.author} \n \n" }
+    puts "Here are all users information \n"
+    @people.each_with_index { |users, i| puts "\n #{i + 1}. #{users.name} aged #{users.age} with ID: #{users.id} \n\n" }
+
+    puts 'Enter an ID to see all user\'s rentals'
+    id = gets.chomp.to_i
+    @rentals.select do |user|
+      puts "\n #{user.date} #{user.book.title} written by #{user.book.author} \n\n" if user.person.id == id
+    end
+  end
 end
