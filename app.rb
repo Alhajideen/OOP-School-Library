@@ -11,10 +11,10 @@ class App
   end
 
   def permission?
-    puts 'Do you have Parent\'s Permission (Y,y/N,n)?'
+    puts 'Do you have Parent\'s Permission (Y/N)?'
     permit = gets.chomp
     case permit
-    when permit == 'y', 'Y'
+    when permit == 'y' , 'Y'
       true
     when permit == 'n', 'N'
       false
