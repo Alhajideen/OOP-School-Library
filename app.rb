@@ -51,7 +51,7 @@ class App
       age = gets.chomp
       puts 'What\'s teacher\'s specialization?'
       spec = gets.chomp
-
+      new_person = Teacher.new(spec, age, name)
       @people << new_person unless @people.include?(new_person)
       puts "\n User #{name} added successfully \n\n"
     when '2'
