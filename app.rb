@@ -100,4 +100,12 @@ class App
       puts "\n #{user.date} #{user.book.title} written by #{user.book.author} \n\n" if user.person.id == id
     end
   end
+
+  def book
+    p 'Enter title: '
+    title = gets.chomp
+    p 'Enter Author: '
+    author = gets.chomp
+    create_book(title, author)
+  end
 end
