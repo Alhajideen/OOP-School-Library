@@ -1,8 +1,10 @@
 #!/usr/bin/env ruby
 
 require './app'
+require './requests'
 
 class Main
+  include Requests
   def init
     options = ['Please choose an option by entering a number',
                '1 - List all books.', '2 - List all people.',
@@ -19,14 +21,6 @@ class Main
 
  
 
-  def book
-    p 'Enter title: '
-    title = gets.chomp
-    p 'Enter Author: '
-    author = gets.chomp
-    @inst.create_book(title, author)
-    init
-  end
 end
 
 obj = Main.new
