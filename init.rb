@@ -1,4 +1,6 @@
+require './requests'
 module Init
+  include Requests
   def init
     options = ['Please choose an option by entering a number',
                '1 - List all books.', '2 - List all people.',
