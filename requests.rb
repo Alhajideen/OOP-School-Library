@@ -2,10 +2,6 @@ require './app.rb'
 
 
 module Requests
-  def initialize
-    @inst = App.new
-  end
-
   def request(request)
    case request
    when '1'

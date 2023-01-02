@@ -5,6 +5,9 @@ require './requests'
 
 class Main
   include Requests
+  def initialize
+    @inst = App.new
+  end
   def init
     options = ['Please choose an option by entering a number',
                '1 - List all books.', '2 - List all people.',
