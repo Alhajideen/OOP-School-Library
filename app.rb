@@ -57,8 +57,8 @@ class App
       data = { id: new_person.id, age: new_person.age, name: new_person.name, spec: spec, type: 'teacher' }
       @people << data unless @people.include?(data)
       puts "\n User #{name} added successfully \n\n"
-      File.open('./database/people.json', 'w') do |file|
-        file.write(JSON.pretty_generate(@people))
+      File.open('./database/people.json', 'w') do |_file|
+        File.write(JSON.pretty_generate(@people))
       end
     when '2'
       puts 'Enter Student Name'
@@ -72,8 +72,8 @@ class App
       data = { id: new_student.id, age: age, name: name, classes: classes, type: 'student' }
       @people << data unless @people.include?(data)
       puts "\n Student #{name} aged #{age} added successfully \n\n"
-      File.open('./database/people.json', 'w') do |file|
-        file.write(JSON.pretty_generate(@people))
+      File.open('./database/people.json', 'w') do |_file|
+        File.write(JSON.pretty_generate(@people))
       end
     end
   end
@@ -82,8 +82,8 @@ class App
     new_book = Book.new(title, author)
     data = { title: new_book.title, author: new_book.author }
     @books << data unless @books.include?(data)
-    File.open('./database/books.json', 'w') do |file|
-      file.write(JSON.pretty_generate(@books))
+    File.open('./database/books.json', 'w') do |_file|
+      File.write(JSON.pretty_generate(@books))
     end
     puts "\n Book #{title} by #{author} created successfully \n\n"
   end
@@ -109,8 +109,8 @@ class App
     }
     @rentals << data unless @rentals.include?(data)
     puts "\n Rental Created successfully \n\n"
-    File.open('./database/rentals.json', 'w') do |file|
-      file.write(JSON.pretty_generate(@rentals))
+    File.open('./database/rentals.json', 'w') do |_file|
+      File.write(JSON.pretty_generate(@rentals))
     end
   end
 
