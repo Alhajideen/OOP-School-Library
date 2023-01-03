@@ -12,5 +12,12 @@
     "name": "Kelv",
     "classes": "2a",
     "type": "student"
+  },
+  {
+    "id": 2310,
+    "age": "34",
+    "name": "John Doe",
+    "spec": "Physics",
+    "type": "teacher"
   }
 ]
