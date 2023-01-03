@@ -61,6 +61,12 @@ run: `git clone https://github.com/Alhajideen/OOP-School-Library`
 - Twitter: [@Alhaji_deen1](https://twitter.com/Alhaji_deen1)
 - LinkedIn: [Deen](https://linkedin.com/in/nurudeen-salifu-776753244)
 
+👤 **Kelvin Benjamin**
+
+- GitHub: [@Kelvin-Ben](https://github.com/Kelvin-Ben)
+- Twitter: [@kevoyout144](https://twitter.com/kevoyout144)
+- LinkedIn: [Kelvin-Ben](https://www.linkedin.com/in/kelvin-ben-323043173/)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
