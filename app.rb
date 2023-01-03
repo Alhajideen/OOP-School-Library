@@ -2,10 +2,12 @@ require './book'
 require './teacher'
 require './rental'
 require './student'
+require './getData.rb'
 
 class App
+  include GetData
   def initialize
-    @books = []
+    @books = getBooks
     @rentals = []
     @people = []
   end
@@ -28,7 +30,7 @@ class App
     if @books.empty?
       puts "There are no books created yet, You can be the first to add one ): \n\n"
     else
-      @books.each { |bk| puts "\n Title: #{bk.title} by #{bk.author} \n \n" }
+      @books.each_with_index { |book,i| puts "\n #{i+1}) Title: #{book["title"]} by #{book["author"]} \n \n" }
     end
   end
 
@@ -70,7 +72,11 @@ class App
 
   def create_book(title, author)
     new_book = Book.new(title, author)
-    @books << new_book unless @books.include?(new_book)
+    data= { title: new_book.title, author: new_book.author }
+    @books << data unless @books.include?(data)
+    File.open('./database/books.json', 'w') do |file|
+    file.write(JSON.pretty_generate(@books))
+    end
     puts "\n Book #{title} by #{author} created successfully \n\n"
   end
 
