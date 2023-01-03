@@ -6,8 +6,8 @@ module GetData
       files = File.open('./database/books.json', 'r')
       JSON.parse(files.read)
     else
-      File.open('./database/books.json', 'w') do |file|
-        file.write([])
+      File.open('./database/books.json', 'w') do |_file|
+        File.write([])
       end
     end
   end
@@ -17,8 +17,8 @@ module GetData
       files = File.open('./database/people.json', 'r')
       JSON.parse(files.read)
     else
-      File.open('./database/people.json', 'w') do |file|
-        file.write([])
+      File.open('./database/people.json', 'w') do |_file|
+        File.write([])
       end
     end
   end
@@ -28,8 +28,8 @@ module GetData
       files = File.open('./database/rentals.json', 'r')
       JSON.parse(files.read)
     else
-      File.open('./database/rentals.json', 'w') do |file|
-        file.write([])
+      File.open('./database/rentals.json', 'w') do |_file|
+        File.write([])
       end
     end
   end
