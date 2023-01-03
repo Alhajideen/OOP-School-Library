@@ -1,35 +1,35 @@
 require('json')
 
 module GetData
-  def getBooks
+  def getbooks
     if File.exist?('./database/books.json')
-      file = File.open('./database/books.json','r')
-      data_hash=JSON.parse(file.read())
+      files = File.open('./database/books.json', 'r')
+      JSON.parse(files.read)
     else
       File.open('./database/books.json', 'w') do |file|
-      file.write([])
+        file.write([])
       end
     end
   end
 
-  def getPeople
+  def getpeople
     if File.exist?('./database/people.json')
-      file = File.open('./database/people.json','r')
-      data_hash=JSON.parse(file.read())
+      files = File.open('./database/people.json', 'r')
+      JSON.parse(files.read)
     else
       File.open('./database/people.json', 'w') do |file|
-      file.write([])
+        file.write([])
       end
     end
   end
 
-  def getRentals
+  def getrentals
     if File.exist?('./database/rentals.json')
-      file = File.open('./database/rentals.json','r')
-      data_hash=JSON.parse(file.read())
+      files = File.open('./database/rentals.json', 'r')
+      JSON.parse(files.read)
     else
       File.open('./database/rentals.json', 'w') do |file|
-      file.write([])
+        file.write([])
       end
     end
   end

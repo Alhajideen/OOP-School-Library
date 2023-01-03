@@ -1,9 +1,16 @@
 [
   {
-    "id": 4086,
-    "age": "11",
-    "name": "sfdghgj",
-    "spec": "fg",
+    "id": 1326,
+    "age": "23",
+    "name": "Deen",
+    "spec": "JS",
     "type": "teacher"
+  },
+  {
+    "id": 3346,
+    "age": "12",
+    "name": "Kelv",
+    "classes": "2a",
+    "type": "student"
   }
 ]
