@@ -2,12 +2,14 @@ require './book'
 require './teacher'
 require './rental'
 require './student'
+require './get_data'
 
 class App
+  include GetData
   def initialize
-    @books = []
-    @rentals = []
-    @people = []
+    @books = getbooks
+    @rentals = getrentals
+    @people = getpeople
   end
 
   def permission?
@@ -28,7 +30,7 @@ class App
     if @books.empty?
       puts "There are no books created yet, You can be the first to add one ): \n\n"
     else
-      @books.each { |bk| puts "\n Title: #{bk.title} by #{bk.author} \n \n" }
+      @books.each_with_index { |book, i| puts "\n #{i + 1}) Title: #{book['title']} by #{book['author']} \n \n" }
     end
   end
 
@@ -36,7 +38,7 @@ class App
     if @people.empty?
       puts "There are no persons created yet, Add users to see them here :( \n\n"
     else
-      @people.each { |peeps| puts "\n Name: #{peeps.name}, Age: #{peeps.age} years old \n\n" }
+      @people.each { |peeps| puts "\n Name: #{peeps['name']}, Age: #{peeps['age']} years old \n\n" }
     end
   end
 
@@ -52,8 +54,12 @@ class App
       puts 'What\'s teacher\'s specialization?'
       spec = gets.chomp
       new_person = Teacher.new(spec, age, name)
-      @people << new_person unless @people.include?(new_person)
+      data = { id: new_person.id, age: new_person.age, name: new_person.name, spec: spec, type: 'teacher' }
+      @people << data unless @people.include?(data)
       puts "\n User #{name} added successfully \n\n"
+      File.open('./database/people.json', 'w') do |_file|
+        File.write(JSON.pretty_generate(@people))
+      end
     when '2'
       puts 'Enter Student Name'
       name = gets.chomp
@@ -63,29 +69,49 @@ class App
       classes = gets.chomp
       permission?
       new_student = Student.new(classes, name, age)
-      @people << new_student unless @people.include?(new_student)
+      data = { id: new_student.id, age: age, name: name, classes: classes, type: 'student' }
+      @people << data unless @people.include?(data)
       puts "\n Student #{name} aged #{age} added successfully \n\n"
+      File.open('./database/people.json', 'w') do |_file|
+        File.write(JSON.pretty_generate(@people))
+      end
     end
   end
 
   def create_book(title, author)
     new_book = Book.new(title, author)
-    @books << new_book unless @books.include?(new_book)
+    data = { title: new_book.title, author: new_book.author }
+    @books << data unless @books.include?(data)
+    File.open('./database/books.json', 'w') do |_file|
+      File.write(JSON.pretty_generate(@books))
+    end
     puts "\n Book #{title} by #{author} created successfully \n\n"
   end
 
   def create_rental
     puts "Here are the available books, Select by Index number \n"
-    @books.each_with_index { |bk, i| puts "\n #{i + 1}. #{bk.title} by #{bk.author}  \n\n" }
+    @books.each_with_index { |bk, i| puts "\n #{i + 1}. #{bk['title']} by #{bk['author']}  \n\n" }
     index = gets.chomp.to_i
     puts 'Who is renting this book?'
-    @people.each_with_index { |bk, i| puts "#{i + 1} #{bk.name} aged #{bk.age}" }
+    @people.each_with_index { |bk, i| puts "#{i + 1} #{bk['name']} aged #{bk['age']}" }
     person = gets.chomp.to_i
     puts 'Enter a date'
     date = gets.chomp
     new_rental = Rental.new(date, @books[index - 1], @people[person - 1])
-    @rentals << new_rental unless @rentals.include?(new_rental)
+    person_arr = []
+    data = {
+      date: new_rental.date,
+      person_id: new_rental.person['id'],
+      person_name: new_rental.person['name'],
+      title: new_rental.book['title'],
+      author: new_rental.book['author'],
+      rentals: person_arr << new_rental.person['rentals']
+    }
+    @rentals << data unless @rentals.include?(data)
     puts "\n Rental Created successfully \n\n"
+    File.open('./database/rentals.json', 'w') do |_file|
+      File.write(JSON.pretty_generate(@rentals))
+    end
   end
 
   def all_rentals

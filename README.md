@@ -23,7 +23,7 @@
 - [❓ FAQ](#faq)
 - [📝 License](#license)
 
-# 📖 MORSE CODE <a name="about-project"></a>
+# 📖 OOP school library <a name="about-project"></a>
 
 > **[OOP School Library]** This is a tool to record what books are in the library and who borrows them. The app allows you to; Add new students or teachers. Add new books. Save records of who borrowed a given book and when.
 ## 🛠 Built With <a name="built-with">Ruby</a>
@@ -60,6 +60,12 @@ run: `git clone https://github.com/Alhajideen/OOP-School-Library`
 - GitHub: [@Alhajideen](https://github.com/Alhajideen)
 - Twitter: [@Alhaji_deen1](https://twitter.com/Alhaji_deen1)
 - LinkedIn: [Deen](https://linkedin.com/in/nurudeen-salifu-776753244)
+
+👤 **Kelvin Benjamin**
+
+- GitHub: [@Kelvin-Ben](https://github.com/Kelvin-Ben)
+- Twitter: [@kevoyout144](https://twitter.com/kevoyout144)
+- LinkedIn: [Kelvin-Ben](https://www.linkedin.com/in/kelvin-ben-323043173/)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
