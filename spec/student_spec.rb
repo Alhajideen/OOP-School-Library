@@ -21,7 +21,7 @@ describe Student do
    expect(@student.age).to eql 22
   end  
 
-  it 'returns the student age' do
+  it 'returns the value from the play_hooky method' do
    expect(@student.play_hooky).to eql '¯\(ツ)/¯'
-  end  
+  end
 end
