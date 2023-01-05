@@ -2,7 +2,7 @@ require_relative '../base_decorator'
 require_relative '../person'
 
 describe Decorator do
-  before (:each) do
+  before(:each) do
     @person = Person.new(23, 'John')
     @base_decorator = Decorator.new(@person)
   end
