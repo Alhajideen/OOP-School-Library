@@ -14,6 +14,6 @@ describe Person do
   end
 
   it 'Expect to return correct age' do
-    expect(@person.name).to eql 'kelv'
+    expect(@person.correct_name).to eql 'kelv'
   end
 end
