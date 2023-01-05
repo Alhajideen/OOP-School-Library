@@ -1,8 +1,8 @@
 require_relative '../teacher'
 
 describe Teacher do
-  before (:each) do
-    @teacher = Teacher.new('Ruby','Bee',25)
+  before(:each) do
+    @teacher = Teacher.new('Ruby', 'Bee', 25)
   end
 
   it 'Check an instance of Teacher class' do
